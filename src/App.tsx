@@ -30,25 +30,60 @@ function App() {
 
   return (
     <div className="container" {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : lottieData.length > 0 ? (
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: lottieData[0],
-            rendererSettings: {
-              preserveAspectRatio: "xMidYMid slice",
-            },
-          }}
-          width={400}
-          height={400}
-        />
-      ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
-      )}
+      <header className="header">
+        <h1 className="title">Lottie Previewer</h1>
+        <p className="lead monospace">
+          <span className="keyword">SIMPLE</span>: just drop lottie file
+        </p>
+        <p className="lead monospace">
+          <span className="keyword">SECURE</span>: don't send/store your data
+          anywhere
+        </p>
+      </header>
+      <div className="content">
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          <p className="monospace">Drop the files here ...</p>
+        ) : lottieData.length > 0 ? (
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: lottieData[0],
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+            width={400}
+            height={400}
+          />
+        ) : (
+          <p className="monospace">
+            Drag 'n' drop some files here, or click to select files
+          </p>
+        )}
+      </div>
+      <footer className="footer monospace">
+        by
+        <a
+          href="https://twitter.com/yaeda"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @yaeda
+        </a>
+        on
+        <a
+          href="https://github.com/yaeda/lottie-previewer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://unpkg.com/simple-icons@3.3.0/icons/github.svg"
+            alt="GitHub Logo"
+          />
+        </a>
+      </footer>
     </div>
   );
 }
