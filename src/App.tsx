@@ -29,7 +29,7 @@ function App() {
   });
 
   return (
-    <div className="container" {...getRootProps()}>
+    <div className="container">
       <header className="header">
         <h1 className="title">Lottie Previewer</h1>
         <p className="lead monospace">
@@ -40,7 +40,7 @@ function App() {
           anywhere
         </p>
       </header>
-      <div className="content">
+      <div className="content" {...getRootProps()}>
         <input {...getInputProps()} />
         {isDragActive ? (
           <p className="monospace">Drop the files here ...</p>
