@@ -40,7 +40,10 @@ function App() {
           anywhere
         </p>
       </header>
-      <div className="content" {...getRootProps()}>
+      <div
+        className={`content ${isDragActive ? "drag_active" : ""}`}
+        {...getRootProps()}
+      >
         <input {...getInputProps()} />
         {isDragActive ? (
           <p className="monospace">Drop the files here ...</p>
